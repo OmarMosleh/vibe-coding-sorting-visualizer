@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Algorithm Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1>🎯 Sorting Algorithm Visualizer</h1>
+            <p class="subtitle">Watch algorithms sort data in real-time</p>
+        </header>
+
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <!-- Algorithm Selection -->
+            <div class="control-group">
+                <label for="algorithm-select">Algorithm:</label>
+                <select id="algorithm-select">
+                    <option value="bubble">Bubble Sort</option>
+                    <option value="selection">Selection Sort</option>
+                    <option value="insertion">Insertion Sort</option>
+                    <option value="merge">Merge Sort</option>
+                    <option value="quick">Quick Sort</option>
+                    <option value="heap">Heap Sort</option>
+                </select>
+            </div>
+
+            <!-- Array Size Control -->
+            <div class="control-group">
+                <label for="array-size">Array Size: <span id="array-size-value">50</span></label>
+                <input type="range" id="array-size" min="10" max="100" value="50">
+            </div>
+
+            <!-- Speed Control -->
+            <div class="control-group">
+                <label for="speed-control">Speed: <span id="speed-value">Medium</span></label>
+                <input type="range" id="speed-control" min="1" max="100" value="50">
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="control-group buttons">
+                <button id="generate-btn" class="btn btn-secondary">Generate New Array</button>
+                <button id="sort-btn" class="btn btn-primary">Start Sorting</button>
+                <button id="pause-btn" class="btn btn-warning" disabled>Pause</button>
+                <button id="reset-btn" class="btn btn-secondary">Reset</button>
+            </div>
+        </div>
+
+        <!-- Complexity Information Panel -->
+        <div class="info-panel">
+            <div class="complexity-info">
+                <h3 id="algorithm-name">Bubble Sort</h3>
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <span class="label">Time (Best):</span>
+                        <span id="time-best" class="value">O(n)</span>
+                    </div>
+                    <div class="complexity-item">
+                        <span class="label">Time (Average):</span>
+                        <span id="time-avg" class="value">O(n²)</span>
+                    </div>
+                    <div class="complexity-item">
+                        <span class="label">Time (Worst):</span>
+                        <span id="time-worst" class="value">O(n²)</span>
+                    </div>
+                    <div class="complexity-item">
+                        <span class="label">Space:</span>
+                        <span id="space-complexity" class="value">O(1)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real-time Statistics -->
+            <div class="statistics">
+                <h3>Statistics</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="label">Comparisons:</span>
+                        <span id="comparisons" class="value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="label">Swaps:</span>
+                        <span id="swaps" class="value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="label">Time Elapsed:</span>
+                        <span id="time-elapsed" class="value">0ms</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="label">Status:</span>
+                        <span id="status" class="value">Ready</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualization Container (the bars live here!) -->
+        <div class="visualization-container">
+            <div id="array-container" class="array-container">
+                <!-- Bars will be dynamically generated here -->
+            </div>
+        </div>
+
+        <!-- Color Legend -->
+        <div class="legend">
+            <div class="legend-item">
+                <span class="color-box default"></span>
+                <span>Unsorted</span>
+            </div>
+            <div class="legend-item">
+                <span class="color-box comparing"></span>
+                <span>Comparing</span>
+            </div>
+            <div class="legend-item">
+                <span class="color-box swapping"></span>
+                <span>Swapping</span>
+            </div>
+            <div class="legend-item">
+                <span class="color-box sorted"></span>
+                <span>Sorted</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files - loaded in order of dependency -->
+    <script src="utils.js"></script>
+    <script src="complexity-data.js"></script>
+    <script src="visualizer.js"></script>
+    <script src="algorithms.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
